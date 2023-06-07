@@ -42,11 +42,18 @@ namespace Lopez_Inventory
 
             foreach (var kv in manifest)
             {
-                if(kv.Value.Count > 0)
+                if(kv.Value.Count > 1)
                 {
-                    manifestText += $"{kv.Value.Count.ToString()} {kv.Key + "s"} {Environment.NewLine}";
+                    if(kv.Key == "Crackers")
+                    {
+                        manifestText += $"{kv.Value.Count.ToString()} {kv.Key} {Environment.NewLine}";
+                    }else
+                    {
+                        manifestText += $"{kv.Value.Count.ToString()} {kv.Key + "s"} {Environment.NewLine}";
+                    }
+                    
                 }
-                else { 
+                else {
                     manifestText += $"{kv.Value.Count.ToString()} {kv.Key} {Environment.NewLine}";
                 }
             }
